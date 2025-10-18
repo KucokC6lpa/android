@@ -34,7 +34,7 @@ fun main() {
                    } else{
                        isInputCorrect=true
                        println("Do your move")
-                       if (isXTurn = true){
+                       if (isXTurn == true){
                            grid[x-1][y-1] ='x'
                            isXTurn = false
                        } else{
@@ -54,11 +54,11 @@ fun main() {
         isInputCorrect=false
         if (((grid[0][0]=='x')&&(grid[0][1]=='x')&&(grid[0][2]=='x'))||((grid[1][0]=='x')&&(grid[1][1]=='x')&&(grid[1][2]=='x'))||((grid[2][0]=='x')&&(grid[2][1]=='x')&&(grid[2][2]=='x'))||((grid[0][0]=='x')&&(grid[1][0]=='x')&&(grid[2][0]=='x'))||((grid[0][1]=='x')&&(grid[1][1]=='x')&&(grid[2][1]=='x'))||((grid[0][2]=='x')&&(grid[1][2]=='x')&&(grid[2][2]=='x'))||((grid[0][0]=='x')&&(grid[1][1]=='x')&&(grid[2][2]=='x'))||((grid[2][0]=='x')&&(grid[1][1]=='x')&&(grid[0][2]=='x'))){
             println("X wins")
-            isGameOver = true
+            isTheGameOver = true
         }
         if (((grid[0][0]=='o')&&(grid[0][1]=='o')&&(grid[0][2]=='o'))||((grid[1][0]=='o')&&(grid[1][1]=='o')&&(grid[1][2]=='o'))||((grid[2][0]=='o')&&(grid[2][1]=='o')&&(grid[2][2]=='o'))||((grid[0][0]=='o')&&(grid[1][0]=='o')&&(grid[2][0]=='o'))||((grid[0][1]=='o')&&(grid[1][1]=='o')&&(grid[2][1]=='o'))||((grid[0][2]=='o')&&(grid[1][2]=='o')&&(grid[2][2]=='o'))||((grid[0][0]=='o')&&(grid[1][1]=='o')&&(grid[2][2]=='o'))||((grid[2][0]=='o')&&(grid[1][1]=='o')&&(grid[0][2]=='o'))){
             println("O wins")
-            isGameOver = true
+            isTheGameOver = true
         }
         
         
