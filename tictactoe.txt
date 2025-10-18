@@ -1,0 +1,66 @@
+//package tictactoe
+
+fun main() {
+    val inputStr = "         "
+    println("---------")
+    println("| ${inputStr[0]} ${inputStr[1]} ${inputStr[2]} |")
+    println("| ${inputStr[3]} ${inputStr[4]} ${inputStr[5]} |")
+    println("| ${inputStr[6]} ${inputStr[7]} ${inputStr[8]} |")
+    println("---------")
+
+    val grid = mutableListOf(
+        mutableListOf<Char>(inputStr[0], inputStr[1], inputStr[2]),
+        mutableListOf<Char>(inputStr[3], inputStr[4], inputStr[5]),
+        mutableListOf<Char>(inputStr[6], inputStr[7], inputStr[8])
+    )
+    
+    var isInputCorrect:Boolean = false
+    var isTheGameOver = false
+    var isXTurn = true
+    while(isTheGameOver == false){
+        while(isInputCorrect==false){
+           println("Select a cell")
+           val (inputX, inputY) = readln().split(" ")
+           val x=inputX.toIntOrNull()
+           val y=inputY.toIntOrNull()
+           if ((x==null)||(y==null)){
+               println("You should enter numbers!")
+           } else{
+               if ((x<1)||(x>3)||(y<1)||(y>3)){
+                   println("Coordinates should be from 1 to 3!")
+               } else{
+                   if (grid[x-1][y-1] != ' '){
+                       println("This cell is occupied! Choose another one!")
+                   } else{
+                       isInputCorrect=true
+                       println("Do your move")
+                       if (isXTurn = true){
+                           grid[x-1][y-1] ='x'
+                           isXTurn = false
+                       } else{
+                           grid[x-1][y-1] ='o'
+                           isXTurn = true
+                       }
+                       
+                       println("---------")
+                       println("| ${grid[0][0]} ${grid[0][1]} ${grid[0][2]} |")
+                       println("| ${grid[1][0]} ${grid[1][1]} ${grid[1][2]} |")
+                       println("| ${grid[2][0]} ${grid[2][1]} ${grid[2][2]} |")
+                       println("---------")
+                   }
+               }
+           }
+        }
+        isInputCorrect=false
+        if (((grid[0][0]=='x')&&(grid[0][1]=='x')&&(grid[0][2]=='x'))||((grid[1][0]=='x')&&(grid[1][1]=='x')&&(grid[1][2]=='x'))||((grid[2][0]=='x')&&(grid[2][1]=='x')&&(grid[2][2]=='x'))||((grid[0][0]=='x')&&(grid[1][0]=='x')&&(grid[2][0]=='x'))||((grid[0][1]=='x')&&(grid[1][1]=='x')&&(grid[2][1]=='x'))||((grid[0][2]=='x')&&(grid[1][2]=='x')&&(grid[2][2]=='x'))||((grid[0][0]=='x')&&(grid[1][1]=='x')&&(grid[2][2]=='x'))||((grid[2][0]=='x')&&(grid[1][1]=='x')&&(grid[0][2]=='x'))){
+            println("X wins")
+            isGameOver = true
+        }
+        if (((grid[0][0]=='o')&&(grid[0][1]=='o')&&(grid[0][2]=='o'))||((grid[1][0]=='o')&&(grid[1][1]=='o')&&(grid[1][2]=='o'))||((grid[2][0]=='o')&&(grid[2][1]=='o')&&(grid[2][2]=='o'))||((grid[0][0]=='o')&&(grid[1][0]=='o')&&(grid[2][0]=='o'))||((grid[0][1]=='o')&&(grid[1][1]=='o')&&(grid[2][1]=='o'))||((grid[0][2]=='o')&&(grid[1][2]=='o')&&(grid[2][2]=='o'))||((grid[0][0]=='o')&&(grid[1][1]=='o')&&(grid[2][2]=='o'))||((grid[2][0]=='o')&&(grid[1][1]=='o')&&(grid[0][2]=='o'))){
+            println("O wins")
+            isGameOver = true
+        }
+        
+        
+    }
+}
